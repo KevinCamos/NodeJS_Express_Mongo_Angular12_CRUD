@@ -5,18 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { ProductsComponent } from './pages/products/products.component';
+import { CreateProductsComponent } from './components/create-products/create-products.component';
+import { ListProductsComponent } from './components/list-products/list-products.component';
+// import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [//declaración de componentes
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    ProductsComponent,
+    CreateProductsComponent,
+    ListProductsComponent,
   ],
   imports: [ //modulos que importamos al proyecto
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],//servicios
   bootstrap: [AppComponent]//componentes que se van a iniciar

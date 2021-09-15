@@ -1,0 +1,41 @@
+.fas  {
+  cursor: pointer;
+  margin-left: 7px;
+}
+
+h5 {
+  text-align: start;
+  margin-top: 10px;
+}
+
+@media (max-width: 413px) {
+
+  .table>:not(caption)>*>* {
+      padding: 0.3rem;
+  }
+
+  td {
+      font-size: 0.75rem;
+      margin: 0rem;
+  }
+
+  th {
+      font-size: 0.8rem;
+      margin: 0rem;
+  }
+
+  .card-body {
+      padding: 0.5rem;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  .text-center {
+      text-align: left !important;
+  }
+}
+
+
