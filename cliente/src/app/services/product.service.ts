@@ -12,23 +12,23 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-    getProductos(): Observable<any> {
+    getProducts(): Observable<any> {
       return this.http.get(environment.url);
     }
 
-    eliminarProducto(id: string):Observable<any> {
+    deleteProduct(id: string):Observable<any> {
       return this.http.delete(environment.url + id);
     }
 
-    guardarProducto(product: Product):Observable<any> {
+    saveProduct(product: Product):Observable<any> {
       return this.http.post(environment.url, product);
     }
 
-    obtenerProducto(id: string):Observable<any> {
+    GetProduct(id: string):Observable<any> {
       return this.http.get(environment.url + id);
     }
 
-    editarProducto(id: string, product: Product):Observable<any> {
+    updateProduct(id: string, product: Product):Observable<any> {
       return this.http.put(environment.url + id, product);
     }
 

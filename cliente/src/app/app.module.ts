@@ -9,6 +9,8 @@ import { CreateProductsComponent } from './components/create-products/create-pro
 import { ListProductsComponent } from './components/list-products/list-products.component';
 // import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+// Librería FontAwesome para Iconos
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [//declaración de componentes
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [ //modulos que importamos al proyecto
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],//servicios
   bootstrap: [AppComponent]//componentes que se van a iniciar

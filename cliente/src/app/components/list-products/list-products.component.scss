@@ -1,4 +1,4 @@
-.fas  {
+.fas {
   cursor: pointer;
   margin-left: 7px;
 }
@@ -8,24 +8,25 @@ h5 {
   margin-top: 10px;
 }
 
+
 @media (max-width: 413px) {
 
   .table>:not(caption)>*>* {
-      padding: 0.3rem;
+    padding: 0.3rem;
   }
 
   td {
-      font-size: 0.75rem;
-      margin: 0rem;
+    font-size: 0.75rem;
+    margin: 0rem;
   }
 
   th {
-      font-size: 0.8rem;
-      margin: 0rem;
+    font-size: 0.8rem;
+    margin: 0rem;
   }
 
   .card-body {
-      padding: 0.5rem;
+    padding: 0.5rem;
   }
 
 }
@@ -34,8 +35,19 @@ h5 {
 @media (max-width: 767px) {
 
   .text-center {
-      text-align: left !important;
+    text-align: left !important;
   }
 }
 
+.delete:hover {
+  color: darkred;
+}
 
+fa-icon {
+  color: grey;
+  cursor: pointer
+}
+
+.addProduct:hover {
+  color: greenyellow
+}
