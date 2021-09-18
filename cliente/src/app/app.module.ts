@@ -11,6 +11,8 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { HttpClientModule } from '@angular/common/http';
 // Librería FontAwesome para Iconos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// importar formularios
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [//declaración de componentes
@@ -24,7 +26,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    // FormsModule,
+     ReactiveFormsModule
   ],
   providers: [],//servicios
   bootstrap: [AppComponent]//componentes que se van a iniciar
