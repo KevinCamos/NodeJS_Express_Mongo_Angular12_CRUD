@@ -26,7 +26,7 @@ export class CreateProductsComponent implements OnInit {
       location: ['', Validators.required],
       price: ['', Validators.required],
     });
-    this.id = this.aRouter.snapshot.paramMap.get('id');
+    this.id = this.aRouter.snapshot.paramMap.get('id'); //obtiene la 'id' del link
   }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class CreateProductsComponent implements OnInit {
   }
 
   addProduct() {
-    console.log()
+    console.log();
     const PRODUCT: Product = {
       nombre: this.productForm.get('product')?.value,
       categoria: this.productForm.get('category')?.value,
@@ -42,13 +42,18 @@ export class CreateProductsComponent implements OnInit {
       precio: this.productForm.get('price')?.value,
     };
     if (this.id !== null) {
+      console.log(this.id);
+
       this._productService.updateProduct(this.id, PRODUCT).subscribe(
         (data) => {
+          console.table(data);
+
           // this.toastr.info(
           //   'El producto fue actualizado con éxito',
           //   'Producto Actualizado!'
           // );
-          alert('producto Actualizado'), this.router.navigate(['/']);
+          alert('producto Actualizado'),
+            this.router.navigate(['/list-products']);
         },
         (error) => {
           console.log(error);
@@ -58,11 +63,13 @@ export class CreateProductsComponent implements OnInit {
     } else {
       this._productService.saveProduct(PRODUCT).subscribe(
         (data) => {
+          console.log(data);
+
           // this.toastr.succes(
           //   'El producto fue registrado con éxito',
           //   'Producto Registrado!'
           // );
-          this.router.navigate(['/']);
+          this.router.navigate(['/list-products']);
         },
         (error) => {
           console.log(error);
@@ -77,13 +84,12 @@ export class CreateProductsComponent implements OnInit {
       this.titulo = 'Editar producto';
       this._productService.getProduct(this.id).subscribe((data) => {
         this.productForm.setValue({
-          producto: data.nombre,
-          categoria: data.categoria,
-          ubicacion: data.ubicacion,
-          precio: data.precio,
+          product: data.nombre,
+          category: data.categoria,
+          location: data.ubicacion,
+          price: data.precio,
         });
       });
     }
   }
 }
-

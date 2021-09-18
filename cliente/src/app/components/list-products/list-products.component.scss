@@ -1,57 +1,98 @@
-.fas {
+//Estilo iconos awesome y buttons
+fa-icon {
+  color: grey;
   cursor: pointer;
-  margin-left: 7px;
 }
-
-h5 {
-  text-align: start;
-  margin-top: 10px;
-}
-
-
-// @media (max-width: 413px) {
-
-.table>:not(caption)>*>* {
-  padding: 0.3rem;
-}
-
-td {
-  font-size: 0.75rem;
-  margin: 0rem;
-  width: 60px;
-
-}
-
-th {
-  font-size: 0.8rem;
-  margin: 0rem;
-  width: 60px;
-}
-
-.card-body {
-  padding: 0.5rem;
-}
-
-// }
-
-
-// @media (max-width: 767px) {
-
-.text-center {
-  text-align: left !important;
-}
-
-// }
 
 .delete:hover {
   color: darkred;
 }
 
-fa-icon {
-  color: grey;
-  cursor: pointer
+.update {
+  padding: 10px;
+
+}
+
+.update:hover {
+  color: blue;
+}
+
+
+.addProduct {
+  cursor: pointer;
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: greenyellow;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 20px;
+
 }
 
 .addProduct:hover {
-  color: greenyellow
+  background-color: greenyellow;
+  color: green;
+
+}
+
+
+//estilo del formulario
+table {
+  background-color: paleturquoise;
+  border-collapse: collapse;
+  border-radius: 5px;
+
+}
+
+legend {
+  border: 1px solid black;
+  background-color: mistyrose;
+  border-radius: 5px;
+}
+
+
+
+.list-product,
+table {
+  table-layout: auto;
+  width: 800px;
+
+  text-align: center;
+  margin: 0 auto;
+}
+
+.list-product {
+  margin-top: 40px;
+}
+
+th,
+td {
+  width: 25%;
+  text-align: initial;
+  vertical-align: top;
+
+}
+
+tr:nth-child(2n+0) {
+  background-color: beige;
+}
+
+tbody>tr:nth-child(2n+1) {
+  background-color: lightcyan;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+tbody>tr:hover {
+  background-color: gainsboro;
+  border-color: green;
+cursor: pointer;
 }

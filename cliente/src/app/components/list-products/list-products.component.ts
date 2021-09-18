@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-products',
@@ -12,7 +11,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class ListProductsComponent implements OnInit {
   listProducts: Product[] = [];
   faTrash = faTrash;
-  faPlus=faPlus;
+  faPlus = faPlus;
+  faEdit = faEdit;
   constructor(
     private _productoService: ProductService // ,               private toastr: ToastrServic
   ) {}

@@ -7,8 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', component: HomeComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
   { path: 'home', component: HomeComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
-  { path: 'listProducts', component: ListProductsComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
-  { path: 'createProducts', component: CreateProductsComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
+  { path: 'list-products', component: ListProductsComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
+  { path: 'create-products', component: CreateProductsComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
+  { path: 'update-product/:id', component: CreateProductsComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
   { path: 'home', component: HomeComponent }, //al crear una página como componente "ng generate component pages/home", hay que añadirlo aquí!!!! IMPORTANTE!
   { path: '404', component: NotFoundComponent }, //El asterisco es la página "default" si no existe la ruta, se coloca al final"
   { path: '**', component: NotFoundComponent }, //El asterisco es la página "default" si no existe la ruta, se coloca al final"
