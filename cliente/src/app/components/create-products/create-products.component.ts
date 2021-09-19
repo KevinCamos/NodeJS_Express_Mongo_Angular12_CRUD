@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { NotificationService } from 'src/app/services/notification.service';
 import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-create-products',
@@ -13,13 +14,13 @@ export class CreateProductsComponent implements OnInit {
   titulo = 'Crear producto';
   id: string | null;
 
-
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private _productService: ProductService,
     // private toastr:ToastrService,
-    private aRouter: ActivatedRoute
+    private aRouter: ActivatedRoute,
+    private notifyService: NotificationService
   ) {
     this.productForm = this.fb.group({
       product: ['', Validators.required],
@@ -47,17 +48,15 @@ export class CreateProductsComponent implements OnInit {
 
       this._productService.updateProduct(this.id, PRODUCT).subscribe(
         (data) => {
-          console.table(data);
 
-          // this.toastr.info(
-          //   'El producto fue actualizado con éxito',
-          //   'Producto Actualizado!'
-          // );
-          alert('producto Actualizado'),
-            this.router.navigate(['/list-products']);
+          this.notifyService.showInfo('Este producto ha sido modificado', 'Producto modificado');
+
+          this.router.navigate(['/list-products']);
         },
         (error) => {
           console.log(error);
+          this.notifyService.showWarning('Ha habido algún problema y no se ha modificado el producto', 'Error en update');
+
           this.productForm.reset(); //reinicia el formulario
         }
       );
@@ -66,10 +65,8 @@ export class CreateProductsComponent implements OnInit {
         (data) => {
           console.log(data);
 
-          // this.toastr.succes(
-          //   'El producto fue registrado con éxito',
-          //   'Producto Registrado!'
-          // );
+          this.notifyService.showInfo('Este producto ha sido guardado con éxito', '¡Producto guardado!');
+
           this.router.navigate(['/list-products']);
         },
         (error) => {

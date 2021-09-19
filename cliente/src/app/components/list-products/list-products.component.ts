@@ -2,6 +2,7 @@ import { Component, OnInit, LOCALE_ID } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { faTrash, faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-list-products',
@@ -10,7 +11,8 @@ import { faTrash, faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
 })
 export class ListProductsComponent implements OnInit {
   listProducts: Product[] = [];
-  dictionaryCategory: { [key: number]: string } = { // Vore de com fer una variable única
+  dictionaryCategory: { [key: number]: string } = {
+    // Vore de com fer una variable única
     0: 'Otros',
     1: 'Electrónicos',
     2: 'Música',
@@ -18,12 +20,12 @@ export class ListProductsComponent implements OnInit {
     4: 'Hogar',
     5: 'Libros',
   };
-
   faTrash = faTrash;
   faPlus = faPlus;
   faEdit = faEdit;
   constructor(
-    private _productoService: ProductService // ,               private toastr: ToastrServic
+    private _productoService: ProductService,
+    private notifyService: NotificationService // ,               private toastr: ToastrServic
   ) {}
 
   ngOnInit(): void {
@@ -36,7 +38,10 @@ export class ListProductsComponent implements OnInit {
         console.log(data);
 
         for (let product in data) {
-         data[product].price=new Intl.NumberFormat('es', { style: 'currency', currency: 'EUR' }).format( data[product].price);
+          data[product].price = new Intl.NumberFormat('es', {
+            style: 'currency',
+            currency: 'EUR',
+          }).format(data[product].price);
         }
         this.listProducts = data; //ListProducts es un objeto Product[]
       },
@@ -49,8 +54,11 @@ export class ListProductsComponent implements OnInit {
   deleteProduct(id: any) {
     this._productoService.deleteProduct(id).subscribe(
       (data) => {
-        // this.toastr.error('El producto fue eliminado con éxito', 'Producto eliminado');
-        alert('Producto eliminado');
+        this.notifyService.showError(
+          'sEl producto se ha eliminado con éxito',
+          'Producto eliminado'
+        );
+
         this.getProducts();
       },
       (error) => {
