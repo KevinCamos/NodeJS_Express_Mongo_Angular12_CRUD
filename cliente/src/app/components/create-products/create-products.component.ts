@@ -12,6 +12,12 @@ export class CreateProductsComponent implements OnInit {
   productForm: FormGroup;
   titulo = 'Crear producto';
   id: string | null;
+  // dictionaryCategory: { [key: number]: string } = {
+  //   0: 'electrónicos',
+  //   1: 'electrónicos',
+  //   2: 'electrónicos',
+  //   3: 'electrónicos',
+  // };
 
   constructor(
     private fb: FormBuilder,
@@ -36,10 +42,10 @@ export class CreateProductsComponent implements OnInit {
   addProduct() {
     console.log();
     const PRODUCT: Product = {
-      nombre: this.productForm.get('product')?.value,
-      categoria: this.productForm.get('category')?.value,
-      ubicacion: this.productForm.get('location')?.value,
-      precio: this.productForm.get('price')?.value,
+      name: this.productForm.get('product')?.value,
+      category: this.productForm.get('category')?.value,
+      location: this.productForm.get('location')?.value,
+      price: this.productForm.get('price')?.value,
     };
     if (this.id !== null) {
       console.log(this.id);
@@ -84,10 +90,10 @@ export class CreateProductsComponent implements OnInit {
       this.titulo = 'Editar producto';
       this._productService.getProduct(this.id).subscribe((data) => {
         this.productForm.setValue({
-          product: data.nombre,
-          category: data.categoria,
-          location: data.ubicacion,
-          price: data.precio,
+          product: data.name,
+          category: data.category,
+          location: data.location,
+          price: data.price,
         });
       });
     }

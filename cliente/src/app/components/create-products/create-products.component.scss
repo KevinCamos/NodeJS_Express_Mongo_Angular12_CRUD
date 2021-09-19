@@ -40,3 +40,24 @@ input {
 .height-error {
   height: 20px;
 }
+
+
+
+
+
+//Selected
+
+select {
+  // background: orange;
+  border: none;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+select:focus {
+  outline: none;
+  border-radius: 10px;
+}
+
+/* elimina la "sombra" azulada que aparece en Google Chrome */

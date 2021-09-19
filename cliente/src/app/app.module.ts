@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // importar formularios
 import {  ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [//declaración de componentes
@@ -30,7 +32,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     // FormsModule,
      ReactiveFormsModule
   ],
-  providers: [],//servicios
+  providers: []
+  ,//servicios
   bootstrap: [AppComponent]//componentes que se van a iniciar
 
 })

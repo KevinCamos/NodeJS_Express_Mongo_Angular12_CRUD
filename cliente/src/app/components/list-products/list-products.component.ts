@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { faTrash, faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +25,10 @@ export class ListProductsComponent implements OnInit {
     this._productoService.getProducts().subscribe(
       (data) => {
         console.log(data);
+
+        for (let product in data) {
+         data[product].price=new Intl.NumberFormat('es', { style: 'currency', currency: 'EUR' }).format( data[product].price);
+        }
         this.listProducts = data; //ListProducts es un objeto Product[]
       },
       (error) => {

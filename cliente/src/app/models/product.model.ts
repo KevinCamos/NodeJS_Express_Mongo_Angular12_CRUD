@@ -1,14 +1,24 @@
 export class Product {
-    _id?: number;
-    nombre: string;
-    categoria: string;
-    ubicacion: string;
-    precio: number;
+  _id?: number;
+  name: string;
+  category: string;
+  location: string;
+  price: number;
+  view?: number;
 
-    constructor( _id: number, nombre: string , categoria: string, ubicacion: string, precio: number ){
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.ubicacion = ubicacion;
-        this.precio = precio;
-    }
+  constructor(
+    _id: number,
+
+    name: string,
+    category: string,
+    location: string,
+    price: number,
+    view?: number
+  ) {
+    this.name = name;
+    this.category = category;
+    this.location = location;
+    this.price = price;
+    this.view = view ? view : 0;
+  }
 }
