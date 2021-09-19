@@ -12,12 +12,7 @@ export class CreateProductsComponent implements OnInit {
   productForm: FormGroup;
   titulo = 'Crear producto';
   id: string | null;
-  // dictionaryCategory: { [key: number]: string } = {
-  //   0: 'electrónicos',
-  //   1: 'electrónicos',
-  //   2: 'electrónicos',
-  //   3: 'electrónicos',
-  // };
+
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +23,7 @@ export class CreateProductsComponent implements OnInit {
   ) {
     this.productForm = this.fb.group({
       product: ['', Validators.required],
-      category: ['', Validators.required],
+      id_category: ['', Validators.required],
       location: ['', Validators.required],
       price: ['', Validators.required],
     });
@@ -43,7 +38,7 @@ export class CreateProductsComponent implements OnInit {
     console.log();
     const PRODUCT: Product = {
       name: this.productForm.get('product')?.value,
-      category: this.productForm.get('category')?.value,
+      id_category: this.productForm.get('id_category')?.value,
       location: this.productForm.get('location')?.value,
       price: this.productForm.get('price')?.value,
     };
@@ -91,7 +86,7 @@ export class CreateProductsComponent implements OnInit {
       this._productService.getProduct(this.id).subscribe((data) => {
         this.productForm.setValue({
           product: data.name,
-          category: data.category,
+          id_category: data.id_category,
           location: data.location,
           price: data.price,
         });

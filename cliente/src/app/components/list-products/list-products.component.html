@@ -16,7 +16,7 @@
     <tbody>
       <tr *ngFor="let product of listProducts">
         <td>{{ product.name }}</td>
-        <td>{{ product.category }}</td>
+        <td>{{ dictionaryCategory[product.id_category]}}</td>
         <td>{{ product.location }}</td>
         <td class="price">{{ product.price}}</td>
         <!-- <td class="price">{{ product.price | currency:'EUR':''}}€</td> -->

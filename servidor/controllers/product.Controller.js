@@ -24,7 +24,8 @@ exports.getProducts = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   try {
-    const { name, category, location, price } = req.body;
+    // const { name, id_category, location, price, id_user} = req.body;
+    const { name, id_category, location, price} = req.body;
     let product = await Product.findById(req.params.id);
 
     if (!product) {
@@ -32,9 +33,12 @@ exports.updateProduct = async (req, res) => {
     }
 
     product.name = name;
-    product.category = category;
+    product.id_category = id_category;
     product.location = location;
     product.price = price;
+    //Al modificar, que s'actualitze el Date.Now
+    product.updateDate = Date.now();
+    // product.id_user = id_user;  Quan hi hatja que ficar usuari, no es farà update sobre ell, sino s'anyadirà al "create", açò sols es una prova
 
     product = await Product.findOneAndUpdate({ _id: req.params.id }, product, {
       new: true,

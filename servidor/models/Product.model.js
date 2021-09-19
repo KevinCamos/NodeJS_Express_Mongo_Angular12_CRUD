@@ -5,8 +5,8 @@ const ProductSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
+  id_category: {
+    type: Number,
     required: true,
   },
   location: {
@@ -24,6 +24,14 @@ const ProductSchema = mongoose.Schema({
   creationDate: {
     type: Date,
     default: Date.now(),
+  },
+  updateDate: {
+    type: Date,
+    default: Date.now(),
+  },
+  id_user: {
+    type: String,
+    default: "undefined",
   },
 });
 

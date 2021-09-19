@@ -8,7 +8,7 @@ const conectarDB = async () => {
             useUnifiedTopology: true,
             useFindAndModify: false
         })
-        console.log('BD conectada');
+        console.log('BD conectada con éxito');
         
     } catch (error) {
         console.log(error);

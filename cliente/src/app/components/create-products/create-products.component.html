@@ -6,19 +6,20 @@
 
       <tr>
         <td><label for="product">Producto:</label></td>
-        <td><label for="category">Categoría:</label></td>
+        <td><label for="id_category">Categoría:</label></td>
       </tr>
       <tr>
         <td><input type="text" id="product" formControlName="product" placeholder="Smart TV Samsung"></td>
-        <td><input type="text" id="category" formControlName="category" placeholder="Electrodomésticos"></td>
-        <!-- <div  class="custom-select" >
-          <select name="categoria">
-          <option value="Eletronicos"selected="selected">Eletronicos</option>
-          <option value="Musica" >Musica</option>
-          <option value="Hogar">Hogar</option>
-          <option value="Otros">Otros</option>
+        <!-- <td><input type="text" id="id_category" formControlName="id_category" placeholder="Electrodomésticos"></td> -->
+        <div class="custom-select">
+          <select id="id_category" formControlName="id_category">
+            <option value="" >Selecciona una categoría</option>
+            <option value="0" >Otros</option>
+            <option value="1">Musica</option>
+            <option value="2">Hogar</option>
+            <option value="3">Eletronicos</option>
           </select>
-        </div> -->
+        </div>
       </tr>
       <tr class="height-error">
         <td>
@@ -28,8 +29,8 @@
           </div>
         </td>
         <td>
-          <div class="text-danger" *ngIf="productForm.get('category')?.hasError('required') &&
-                 productForm.get('category')?.touched">
+          <div class="text-danger" *ngIf="productForm.get('id_category')?.hasError('required') &&
+                 productForm.get('id_category')?.touched">
             <span>La ubicación del producto <strong>es obligatoria</strong></span>
           </div>
         </td>
@@ -48,8 +49,8 @@
         <td>
           <div class="text-danger" *ngIf="productForm.get('location')?.hasError('required') &&
                  productForm.get('location')?.touched">
-                 <span><strong>Es obligatorio</strong> un lugar</span>
-                </div>
+            <span><strong>Es obligatorio</strong> un lugar</span>
+          </div>
         </td>
         <td>
           <div class="text-danger" *ngIf="productForm.get('price')?.hasError('required') &&
@@ -61,6 +62,6 @@
       </tr>
     </table>
     <button routerLink="/list-products">VOLVER</button>
-    <button type="submit" [disabled]="!productForm.valid"  >ACEPTAR</button>
+    <button type="submit" [disabled]="!productForm.valid">ACEPTAR</button>
   </fieldset>
 </form>

@@ -10,6 +10,15 @@ import { faTrash, faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
 })
 export class ListProductsComponent implements OnInit {
   listProducts: Product[] = [];
+  dictionaryCategory: { [key: number]: string } = { // Vore de com fer una variable única
+    0: 'Otros',
+    1: 'Electrónicos',
+    2: 'Música',
+    3: 'Informática',
+    4: 'Hogar',
+    5: 'Libros',
+  };
+
   faTrash = faTrash;
   faPlus = faPlus;
   faEdit = faEdit;
